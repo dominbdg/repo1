@@ -9,7 +9,10 @@ pipeline {
               }
             }
             steps {
+                sh '''
                 echo 'Hello World'
+                hostname
+                '''
             }
         }
     }
