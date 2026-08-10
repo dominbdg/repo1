@@ -6,11 +6,6 @@ pipeline {
             steps {
                 sh 'pwd' 
             }
-        }
-        stage('deploy') {
-            steps {
-                echo "myvar is: $myvar"
-            }
-        }        
+        }     
     }
 }
