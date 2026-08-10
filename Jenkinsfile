@@ -15,7 +15,9 @@ pipeline {
             }
         }
         stage('deploy') {
-            echo "myvar is: $myvar"
+            steps {
+                echo "myvar is: $myvar"
+            }
         }        
     }
 }
