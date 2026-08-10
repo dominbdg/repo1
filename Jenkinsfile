@@ -9,7 +9,7 @@ pipeline {
                     aa=2
                     bb=4
 
-                    cc=2+4
+                    cc=$(2+4)
                     echo "wynik $cc"
                 '''
             }
