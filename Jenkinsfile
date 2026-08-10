@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'pwd' 
+                sh 'docker image ls' 
             }
         }     
     }
