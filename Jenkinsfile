@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage('Hello') {
-            agent any
             steps {
                 sh 'pwd' 
             }
