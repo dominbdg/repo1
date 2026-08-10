@@ -3,15 +3,9 @@ pipeline {
 
     stages {
         stage('Hello') {
-            agent {
-              docker {
-                image 'debian:latest'
-              }
-            }
+            agent any
             steps {
-                script {
-                   env.myvar="abc"     
-                }
+                sh 'pwd' 
             }
         }
         stage('deploy') {
