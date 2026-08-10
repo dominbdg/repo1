@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                '''
+                ,,,
                     echo "FROM debian:latest" > Dockerfile
-                '''
+                ,,,
             }
         }     
     }
