@@ -9,11 +9,13 @@ pipeline {
               }
             }
             steps {
-                sh '''
-                cat /etc/hosts
-                hostname
-                '''
+                script {
+                   env.myvar="abc"     
+                }
             }
         }
+        stage('deploy') {
+            echo "myvar is: $myvar"
+        }        
     }
 }
