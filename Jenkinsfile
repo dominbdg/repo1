@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'docker image ls' 
+                '''
+                    echo "FROM debian:latest" > Dockerfile
+                '''
             }
         }     
     }
