@@ -5,7 +5,7 @@ pipeline {
         stage('Hello') {
             steps {
                 sh '''
-                    echo "FROM debian:latest" > Dockerfile
+                    echo "jestem Karolina"
                 '''
             }
         }     
