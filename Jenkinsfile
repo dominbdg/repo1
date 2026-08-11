@@ -19,7 +19,7 @@ pipeline {
         }
         stage('check docker version') {
             steps {
-                sh 'docker image ls'
+                sh 'kubectl get pods -A'
             }
         }    
     }
