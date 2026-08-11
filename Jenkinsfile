@@ -7,7 +7,7 @@ pipeline {
                 sh '''
                     #echo "FROM debian:latest" > Dockerfile
                     #docker build -t debian:mod .
-                    docker image ls
+                    docker image rm debian:mod
        
                 '''
             }
