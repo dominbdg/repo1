@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                     echo "FROM debian:latest" > Dockerfile
-                    docker built -t debian:mod .
+                    docker build -t debian:mod .
   
        
                 '''
