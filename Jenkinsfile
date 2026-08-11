@@ -3,12 +3,18 @@ pipeline {
 
     stages {
         stage('Hello') {
+            agent {
+                docker {
+                    image "ubuntu:latest"
+                }
+            }
+
             steps {
                 sh '''
                     #echo "FROM debian:latest" > Dockerfile
                     #docker build -t debian:mod .
-                    docker image rm debian:mod
-       
+                    #docker pull ububnto
+                    ls -al 
                 '''
             }
         }     
