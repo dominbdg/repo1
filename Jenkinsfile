@@ -8,7 +8,6 @@ pipeline {
                     image "ubuntu:latest"
                 }
             }
-
             steps {
                 sh '''
                     #echo "FROM debian:latest" > Dockerfile
@@ -17,6 +16,11 @@ pipeline {
                     ls -al 
                 '''
             }
-        }     
+        }
+        stage('check docker version') {
+            steps {
+                sh 'docker image ls'
+            }
+        }    
     }
 }
