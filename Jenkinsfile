@@ -5,7 +5,8 @@ pipeline {
         stage('Hello') {
             steps {
                 sh '''
-                    echo "jestem Karolina"
+                    echo "FROM debian:latest" > Dockerfile
+                    docker built -t debian:mod .
   
        
                 '''
