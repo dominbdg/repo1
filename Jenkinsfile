@@ -16,6 +16,7 @@ pipeline {
                     #echo "FROM debian:latest" > Dockerfile
                     #docker build -t debian:mod .
                     #docker pull ububntu
+                    pwd
                     ls -al 
                 '''
             }
@@ -24,6 +25,7 @@ pipeline {
             steps {
                 sh '''
                     echo "testing second stage"
+                    pwd
                     ls -alh
 
                 '''
