@@ -10,16 +10,19 @@ pipeline {
             }
             steps {
                 sh '''
-                    #echo "FROM debian:latest" > Dockerfile
-                    #docker build -t debian:mod .
-                    #docker pull ububnto
-                    ls -al 
+                    echo " testing first stage"
+                    echo "aaa" > echo.txt
+                    ls -alh 
                 '''
             }
         }
         stage('check docker version') {
             steps {
-                sh 'kubectl get pods -A'
+                sh '''
+                    echo "testing second stage"
+                    ls -alh
+
+                '''
             }
         }    
     }
