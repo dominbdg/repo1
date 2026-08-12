@@ -3,11 +3,7 @@ pipeline {
 
     stages {
         stage('Hello') {
-            agent {
-                docker {
-                    image "ubuntu:latest"
-                }
-            }
+            agent any
             steps {
                 sh '''
                     echo " testing first stage"
