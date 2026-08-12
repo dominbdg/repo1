@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('create file') {
             agent any
             steps {
                 sh '''
@@ -17,7 +17,7 @@ pipeline {
                 '''
             }
         }
-        stage('check docker version') {
+        stage('check file') {
             steps {
                 sh '''
                     echo "testing second stage"
@@ -26,6 +26,30 @@ pipeline {
 
                 '''
             }
+        }
+
+        pararrel {
+            stage('stage1') {
+                        steps {
+                            sh '''
+                                echo "this is pararrel stage1"
+                                pwd
+                                ls -alh
+
+                            '''
+                        }
+                    }
+
+          stage('stage2') {
+                        steps {
+                            sh '''
+                                echo "this is pararrel stage2"
+                                pwd
+                                ls -alh
+
+                            '''
+                        }
+                    }
         }    
     }
 }
