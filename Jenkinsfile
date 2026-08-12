@@ -13,6 +13,10 @@ pipeline {
                     echo " testing first stage"
                     echo "aaa" > echo.txt
                     ls -alh 
+                    #echo "FROM debian:latest" > Dockerfile
+                    #docker build -t debian:mod .
+                    #docker pull ububntu
+                    ls -al 
                 '''
             }
         }
