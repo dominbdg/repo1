@@ -28,7 +28,7 @@ pipeline {
             }
         }
 
-        pararrel {
+        parallel {
             stage('stage1') {
                         steps {
                             sh '''
