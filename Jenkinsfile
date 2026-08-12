@@ -8,7 +8,7 @@ pipeline {
                     agent any
                     steps {
                         sh '''
-                            echo "stage1
+                            echo "stage1"
                         '''
                     }
                 }
@@ -16,7 +16,7 @@ pipeline {
                     agent any
                     steps {
                         sh '''
-                            echo "stage2
+                            echo "stage2"
 
                         '''
                     }
