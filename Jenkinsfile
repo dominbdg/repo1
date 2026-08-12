@@ -12,7 +12,7 @@ pipeline {
                 sh '''
                     #echo "FROM debian:latest" > Dockerfile
                     #docker build -t debian:mod .
-                    #docker pull ububnto
+                    #docker pull ububntu
                     ls -al 
                 '''
             }
