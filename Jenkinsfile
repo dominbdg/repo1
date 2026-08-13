@@ -5,9 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    hostname
-                    whoami
-                    java -version
+                    mkdir /tmp/test    
                 '''
             }
         }
