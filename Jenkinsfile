@@ -1,34 +1,15 @@
 pipeline {
-    agent any
+    agent { label 'linux-10.10.0.43' }
 
     stages {
-        stage('check file') {
-            parallel {
-                stage('stage1') {
-                    agent any
-                    steps {
-                        sh '''
-                            echo "stage1"
-                        '''
-                    }
-                }
-                 stage('stage2') {
-                    agent any
-                    steps {
-                        sh '''
-                            echo "stage2"
-
-                        '''
-                    }
-                }           
-
-
-
-
-
-
-
+        stage('Test') {
+            steps {
+                sh '''
+                    hostname
+                    whoami
+                    java -version
+                '''
+            }
         }
     }
-}
 }
