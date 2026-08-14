@@ -15,7 +15,7 @@ pipeline {
                     sh '''
                         echo "hello s3!" > index.html
                         aws s3api create-bucket --bucket test123 
-                        aws s3 cp index.html s3://test123/
+                        aws s3 cp index.html s3://test-202608142248/
                     '''
                 }
 
