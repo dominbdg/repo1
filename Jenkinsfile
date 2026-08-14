@@ -12,8 +12,9 @@ pipeline {
 
                 sh '''
                     export AWS_ACCESS_KEY_ID="AKIA3RE5UOOL6QXNHZ4K"
-                    export AWS_SECRET_ACCESS_KEY="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" 
-                    aws s3 ls
+                    export AWS_SECRET_ACCESS_KEY="ETA9/+68wat4oCkwY/gEKKNLvSXs3IZGY87hRvFq"
+                    touch test123 
+                    aws s3 cp test123 dominbdg123/
 
 
                 '''
