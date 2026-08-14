@@ -14,7 +14,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         echo "hello s3!" > index.html
-                        aws s3api create-bucket --bucket test123 
+                        aws s3api create-bucket --bucket test-202608142248 
                         aws s3 cp index.html s3://test-202608142248/
                     '''
                 }
