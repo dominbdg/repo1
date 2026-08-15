@@ -16,7 +16,7 @@ pipeline {
                 {
                     sh '''
                         echo "hello s3!" > index.html
-                        aws s3api create-bucket --bucket test-202608142248
+                        #aws s3api create-bucket --bucket test-202608142248
 
                         touch "aaa"
                         touch "bbb"
