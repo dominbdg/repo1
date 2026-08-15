@@ -17,9 +17,9 @@ pipeline {
                     sh '''
                         echo "hello s3!" > index.html
                         #aws s3api create-bucket --bucket test-202608142248
-
-                        touch "aaa"
-                        touch "bbb"
+                        mkdir test        
+                        touch test/aaa
+                        touch test/bbb
                         ls -al 
                         #aws s3 sync  s3://test-202608142248/
                     '''
