@@ -20,8 +20,8 @@ pipeline {
                         mkdir test        
                         touch test/aaa
                         touch test/bbb
-                        ls -al 
-                        #aws s3 sync  s3://test-202608142248/
+                        #ls -al 
+                        aws s3 sync test/* s3://test-202608142248/
                     '''
                 }
 
