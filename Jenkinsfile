@@ -31,16 +31,11 @@ pipeline {
 
 
 
-        }
+        } //stage
 
 
-    }
-
-
-
-
-
-}
+    } //stages
+} //pipeline
 
 
 
