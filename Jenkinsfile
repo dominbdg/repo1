@@ -25,6 +25,7 @@ pipeline {
                         pwd
                             #cd temp
                             aws ecs list-task-definitions --region us-east-1
+                            aws register-task-definition --cli-input-json file://task-definition.json
                     '''
                 }
 
