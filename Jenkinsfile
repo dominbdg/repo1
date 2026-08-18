@@ -28,7 +28,7 @@ pipeline {
                             #cd temp
                             aws ecs list-task-definitions --region $region
                             #aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                            echo "$_BUILD_ID"
+                            echo '$BUILD_ID'
                     '''
                 }
 
