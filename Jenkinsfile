@@ -24,7 +24,7 @@ pipeline {
                         echo "show entire directory..."
                         pwd
                             #cd temp
-                            aws ecs list-task-definitions
+                            aws ecs list-task-definitions --region us-east-1
                     '''
                 }
 
