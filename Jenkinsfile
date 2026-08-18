@@ -24,7 +24,7 @@ pipeline {
                         echo "show entire directory..."
                         pwd
                             #cd temp
-                            aws s3 ls s3://test-202608142248/
+                            aws ecs list-task-definitions
                     '''
                 }
 
