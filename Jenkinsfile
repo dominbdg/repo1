@@ -28,7 +28,7 @@ pipeline {
                             #cd temp
                             aws ecs list-task-definitions --region $region
                             aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                            aws ecs update-service --cluster "test-cluster-123" --service myservice --task-definition mytask --region $region
+                            aws ecs update-service --cluster test-cluster-123 --service myservice --task-definition mytask --region $region
                             echo "$BUILD_ID"
                     '''
                 }
