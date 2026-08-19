@@ -36,6 +36,8 @@ pipeline {
                             service='myservice'
                             task_definition='mytask-definition'
                         
+                        yum install jq -y    
+
                         echo "--- list services ---"
 
                         #aws ecs list-clusters --region $region
@@ -43,9 +45,11 @@ pipeline {
                         #aws ecs list-services --cluster $cluster --region $region
 
                         echo "--- /list services ---"
+                        echo "--- list revisions ----"
+                            aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region | jq ".taskDefinition.revision"
+                        echo "--- /list revisions ----"
 
-                        aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                        aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:6 --region $region                          
+                        #aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:6 --region $region                          
 
                     '''
                 }
