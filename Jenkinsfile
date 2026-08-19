@@ -29,7 +29,7 @@ pipeline {
                             echo "FROM amazon/aws-cli" > Dockerfile
                             #docker build -t $registry/aws:$version .                         
                             yum update -y
-                            yum install docker
+                            yum install docker -y
                             cat /etc/group
 
                               
