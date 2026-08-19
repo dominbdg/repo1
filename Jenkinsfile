@@ -35,7 +35,9 @@ pipeline {
                         region='us-west-1'
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
-                        
+                            
+                            echo "---aws version---"
+                            aws --version
 
                             #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
