@@ -29,8 +29,12 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
-                        region='us-east-1'
-                        cluster='mycluster'
+                        
+                        # vars
+                            region='us-east-1'
+                            cluster='mycluster'
+                            service='myservice'
+                            task_definition='mytask-definition'
                         
                         echo "--- list services ---"
 
@@ -41,7 +45,7 @@ pipeline {
                         echo "--- /list services ---"
 
                         aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                    
+                        aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:3 --region $region                            
 
                     '''
                 }
