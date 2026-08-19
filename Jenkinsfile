@@ -35,20 +35,7 @@ pipeline {
                         region='us-west-1'
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
-                        aws --version
-                        docker image ls
                         
-                        #yum update -y
-                        #yum install -y docker
-                        #docker image ls
-
-
-
-                        #apt update -y
-                        #apt install awscli -y
-                        #aws --version
-                        #aws update
-                        #aws --version
 
                             #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
@@ -61,9 +48,11 @@ pipeline {
                             #yum update -y
                             #yum install docker -y
                             #cat /etc/group
-
-                            #echo "FROM amazon/aws-cli" > Dockerfile
-                            #docker build -t $registry/aws:$version .  
+                            rm -f Dockerfile
+                            echo "FROM amazon/aws-cli" > Dockerfile
+                            docker build -t $registry/aws:$version .
+                            aws ecr get-login-password | docker login --username AWS --password-stdin $registry
+                            docker push $registry/aws:$version
 
                               
                         #echo "show entire directory..."
