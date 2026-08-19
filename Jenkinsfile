@@ -21,8 +21,7 @@ pipeline {
         stage('aws stage') {
             agent {
                 docker {
-                    //image 'amazon/aws-cli'
-                    image 'docker:latest'
+                    image 'amazon/aws-cli'
                     reuseNode true
                     args "-u 0 --entrypoint=''"
                 } 
@@ -39,8 +38,8 @@ pipeline {
                         #aws --version
 
                         yum update -y
-                        #apt install -y docker
-                        #docker image ls
+                        yum install -y docker
+                        docker image ls
 
 
 
