@@ -1,6 +1,21 @@
 pipeline {
     agent any
     stages {
+        
+        stage('install docker'){
+            steps {
+                sh '''
+                    rm -f Dockerfile
+                    echo "FROM ubuntu:latest" > Dockerfile
+                    echo "RUN apt update -y" >> Dockerfile
+                    echo "RUN apt install awscli -y" >> Dockerfile
+
+
+                '''
+            }
+        }
+
+
         stage('aws stage') {
             agent {
                 docker {
@@ -22,6 +37,8 @@ pipeline {
 
                         apt update -y
                         apt install awscli -y
+                        aws --version
+                        aws update
                         aws --version
 
                             #echo "hello s3!" > index.html
