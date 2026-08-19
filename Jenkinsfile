@@ -23,7 +23,7 @@ pipeline {
                 docker {
                     image 'amazon/aws-cli'
                     reuseNode true
-                    args "-u 0 --entrypoint=''"
+                    args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
             }
             steps {
