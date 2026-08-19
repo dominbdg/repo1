@@ -1,1 +1,23 @@
- 
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "family": "mytask-definition",
+    "containerDefinitions": [
+        {
+            "name": "nginx",
+            "image": "nginx-latest",
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 80
+                }
+                ]
+        }
+    ],
+    "volumes": [],
+    "networkMode": "awsvpc",
+    "memory": "3 GB",
+    "cpu": "1 vCPU",
+    "executionRoleArn": ""
+} 
