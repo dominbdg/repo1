@@ -16,21 +16,30 @@ pipeline {
                 {
                     sh '''
                         region='us-west-1'
+                        registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
+                        version="01"
 
-                        echo "hello s3!" > index.html
+                            #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
                             #mkdir temp        
                             #ouch temp/aaa
                             #touch temp/bbb
+                            
+                            # --- building docker image ----
+                            echo "FROM amazon/aws-cli" > Dockerfile
+                            docker build -t $registry/aws:$version .                         
+
+
+                              
+                        #echo "show entire directory..."
+                        #pwd
+                        #    #cd temp
+                        #    aws ecs list-task-definitions --region $region
+                        #    aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
+                        #    aws ecs update-service --cluster cluster2 --service myservice --task-definition mytask:11 --region $region
+                        #    aws ecs list-clusters --region $region
+                        #    echo "$BUILD_ID"
                         
-                        echo "show entire directory..."
-                        pwd
-                            #cd temp
-                            aws ecs list-task-definitions --region $region
-                            aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                            aws ecs update-service --cluster cluster2 --service myservice --task-definition mytask:11 --region $region
-                            aws ecs list-clusters --region $region
-                            echo "$BUILD_ID"
                     '''
                 }
 
