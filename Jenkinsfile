@@ -36,7 +36,7 @@ pipeline {
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
                             
-                            aws ecs list-clusters
+                            aws ecs list-clusters --region $region
 
 
 
