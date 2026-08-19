@@ -2,21 +2,21 @@ pipeline {
     agent any
     stages {
         
-        /*
+        
         stage('install docker'){
             steps {
                 sh '''
                     rm -f Dockerfile
                     
-                    echo "FROM ubuntu:latest" > Dockerfile
-                    echo "RUN apt update -y" >> Dockerfile
-                    echo "RUN apt install awscli -y" >> Dockerfile
+                    echo "FROM amazon/aws-cli" > Dockerfile
+                    echo "RUN yum update -y" >> Dockerfile
+                    echo "RUN yum install docker -y" >> Dockerfile
 
                     docker build -t myimage:01 .
                 '''
             }
         }
-        */
+        
 
         stage('aws stage') {
             agent {
