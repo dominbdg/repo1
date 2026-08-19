@@ -38,6 +38,12 @@ pipeline {
                         version="01"
                         aws --version
 
+                        apt update -y
+                        apt install -y docker
+                        docker image ls
+
+
+
                         #apt update -y
                         #apt install awscli -y
                         #aws --version
