@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh '''
                     rm -f Dockerfile
+                    
                     echo "FROM ubuntu:latest" > Dockerfile
                     echo "RUN apt update -y" >> Dockerfile
                     echo "RUN apt install awscli -y" >> Dockerfile
