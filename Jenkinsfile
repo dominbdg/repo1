@@ -38,6 +38,7 @@ pipeline {
                             
                             echo "---aws version---"
                             aws --version
+                            docker --version
 
                             #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
