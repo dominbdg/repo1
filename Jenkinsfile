@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         
-        
+        /*
         stage('install docker'){
             steps {
                 sh '''
@@ -16,12 +16,12 @@ pipeline {
                 '''
             }
         }
-        
+        */
 
         stage('aws stage') {
             agent {
                 docker {
-                    image 'amazon/aws-cli'
+                    image 'myimage:01'
                     reuseNode true
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
@@ -35,8 +35,9 @@ pipeline {
                         region='us-west-1'
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
-                        #aws --version
-
+                        aws --version
+                        docker image ls
+                        
                         #yum update -y
                         #yum install -y docker
                         #docker image ls
