@@ -22,7 +22,7 @@ pipeline {
             agent {
                 docker {
                     //image 'amazon/aws-cli'
-                    image 'myimage:01'
+                    image 'docker:latest'
                     reuseNode true
                     args "-u 0 --entrypoint=''"
                 } 
@@ -36,11 +36,11 @@ pipeline {
                         region='us-west-1'
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
-                        aws --version
+                        #aws --version
 
                         apt update -y
-                        apt install -y docker
-                        docker image ls
+                        #apt install -y docker
+                        #docker image ls
 
 
 
