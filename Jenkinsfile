@@ -32,6 +32,7 @@ pipeline {
                         region='us-east-1'
                         
                         aws ecs list-clusters --region $region
+                        aws ecs list-task-definitions --region $region
                     
 
                     '''
