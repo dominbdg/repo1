@@ -27,8 +27,8 @@ pipeline {
                             
                             # --- building docker image ----
                             echo "FROM amazon/aws-cli" > Dockerfile
-                            docker build -t $registry/aws:$version .                         
-
+                            #docker build -t $registry/aws:$version .                         
+                            yum update -y
 
                               
                         #echo "show entire directory..."
