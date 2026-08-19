@@ -2,6 +2,7 @@ pipeline {
     agent any
     stages {
         
+        /*
         stage('install docker'){
             steps {
                 sh '''
@@ -15,13 +16,13 @@ pipeline {
                 '''
             }
         }
-
+        */
 
         stage('aws stage') {
             agent {
                 docker {
                     //image 'amazon/aws-cli'
-                    image 'ubuntu:latest'
+                    image 'myimage:01'
                     reuseNode true
                     args "-u 0 --entrypoint=''"
                 } 
@@ -35,6 +36,7 @@ pipeline {
                         region='us-west-1'
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
+                        aws --version
 
                         #apt update -y
                         #apt install awscli -y
