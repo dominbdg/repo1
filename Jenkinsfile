@@ -51,7 +51,7 @@ pipeline {
                         echo "register version: $register"
                         echo "--- /list revisions ----"
 
-                        #aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:6 --region $region                          
+                        aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:$register --region $region                          
 
                     '''
                 }
