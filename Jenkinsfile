@@ -26,11 +26,13 @@ pipeline {
                             #touch temp/bbb
                             
                             # --- building docker image ----
-                            echo "FROM amazon/aws-cli" > Dockerfile
-                            #docker build -t $registry/aws:$version .                         
+                       
                             yum update -y
                             yum install docker -y
-                            cat /etc/group
+                            #cat /etc/group
+
+                            echo "FROM amazon/aws-cli" > Dockerfile
+                            #docker build -t $registry/aws:$version .  
 
                               
                         #echo "show entire directory..."
