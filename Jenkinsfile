@@ -37,9 +37,9 @@ pipeline {
                         version="01"
                         #aws --version
 
-                        yum update -y
-                        yum install -y docker
-                        docker image ls
+                        #yum update -y
+                        #yum install -y docker
+                        #docker image ls
 
 
 
