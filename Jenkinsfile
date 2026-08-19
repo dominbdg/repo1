@@ -10,7 +10,7 @@ pipeline {
                     echo "RUN apt update -y" >> Dockerfile
                     echo "RUN apt install awscli -y" >> Dockerfile
 
-
+                    docker build -t myimage:01 .
                 '''
             }
         }
@@ -35,11 +35,11 @@ pipeline {
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
 
-                        apt update -y
-                        apt install awscli -y
-                        aws --version
-                        aws update
-                        aws --version
+                        #apt update -y
+                        #apt install awscli -y
+                        #aws --version
+                        #aws update
+                        #aws --version
 
                             #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
