@@ -32,9 +32,15 @@ pipeline {
                         region='us-east-1'
                         cluster='mycluster'
                         
+                        echo "--- list services ---"
+
                         aws ecs list-clusters --region $region
                         aws ecs list-task-definitions --region $region
                         aws ecs list-services --cluster $cluster --region $region
+
+                        echo "--- /list services ---"
+
+                        aws ecs register-task-definition --cli-input-json file://task-definition.json
                     
 
                     '''
