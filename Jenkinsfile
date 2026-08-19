@@ -40,7 +40,7 @@ pipeline {
 
                         echo "--- /list services ---"
 
-                        aws ecs register-task-definition --cli-input-json file://task-definition.json
+                        aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
                     
 
                     '''
