@@ -52,7 +52,7 @@ pipeline {
                         echo "--- /list revisions ----"
 
                         aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:$register --region $region    
-                        aws ecs wait services-stable --cluster $cluster --services $service
+                        aws ecs wait services-stable --cluster $cluster --services $service --region $region
 
 
                     '''
