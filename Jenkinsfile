@@ -36,10 +36,16 @@ pipeline {
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         version="01"
                             
-                            echo "---aws version---"
-                            aws --version
-                            docker --version
-                            docker buildx version
+                            aws ecs list-clusters
+
+
+
+
+
+                            #echo "---aws version---"
+                            #aws --version
+                            #docker --version
+                            #docker buildx version
 
                             #echo "hello s3!" > index.html
                             #aws s3api create-bucket --bucket test-202608142248
@@ -47,16 +53,11 @@ pipeline {
                             #ouch temp/aaa
                             #touch temp/bbb
                             
-                            # --- building docker image ----
-                       
-                            #yum update -y
-                            #yum install docker -y
-                            #cat /etc/group
-                            rm -f Dockerfile
-                            echo "FROM amazon/aws-cli" > Dockerfile
-                            docker build -t $registry/aws:$version .
-                            aws ecr get-login-password | docker login --username AWS --password-stdin $registry
-                            docker push $registry/aws:$version
+                            #rm -f Dockerfile
+                            #echo "FROM amazon/aws-cli" > Dockerfile
+                            #docker build -t $registry/aws:$version .
+                            #aws ecr get-login-password | docker login --username AWS --password-stdin $registry
+                            #docker push $registry/aws:$version
 
                               
                         #echo "show entire directory..."
