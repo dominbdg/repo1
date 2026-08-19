@@ -38,14 +38,14 @@ pipeline {
                         
                         echo "--- list services ---"
 
-                        aws ecs list-clusters --region $region
-                        aws ecs list-task-definitions --region $region
-                        aws ecs list-services --cluster $cluster --region $region
+                        #aws ecs list-clusters --region $region
+                        #aws ecs list-task-definitions --region $region
+                        #aws ecs list-services --cluster $cluster --region $region
 
                         echo "--- /list services ---"
 
-                        #aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
-                        aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:4 --region $region                          
+                        aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region
+                        #aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:4 --region $region                          
 
                     '''
                 }

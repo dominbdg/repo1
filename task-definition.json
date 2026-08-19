@@ -6,13 +6,12 @@
     "containerDefinitions": [
         {
             "name": "nginx",
-            "image": "nginx-latest",
-            "essential": true,
-            "portMappings": [
-                {
-                    "containerPort": 80
-                }
-                ]
+            "image": "nginx",
+            "portMappings": [{
+                "name": "nginx-port",
+                "containerPort": 80
+            }],
+            "essential": true
         }
     ],
     "volumes": [],
@@ -20,4 +19,4 @@
     "memory": "3 GB",
     "cpu": "1 vCPU",
     "executionRoleArn": ""
-} 
+}
