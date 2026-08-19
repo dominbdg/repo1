@@ -30,9 +30,11 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         region='us-east-1'
+                        cluster='mycluster'
                         
                         aws ecs list-clusters --region $region
                         aws ecs list-task-definitions --region $region
+                        aws ecs list-services --cluster $cluster --region $region
                     
 
                     '''
