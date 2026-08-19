@@ -28,10 +28,12 @@ pipeline {
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-                    aws ecs list-clusters
+                    sh '''
+
+                        aws ecs list-clusters
                     
 
-
+                    '''
                 }
 
 
