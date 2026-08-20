@@ -44,8 +44,24 @@ pipeline {
                         apt update -y
                         apt install -y awscli
 
-                        aws --version
+                        # installing docker.io
+                        apt install ca-certificates curl
+                        sudo apt install ca-certificates curl
+                        install -m 0755 -d /etc/apt/keyrings
+                        curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+                        chmod a+r /etc/apt/keyrings/docker.asc
 
+                        # Add the repository to Apt sources:
+                        echo "Types: deb" > /etc/apt/sources.list.d/docker.sources
+                        echo "URIs: https://download.docker.com/linux/ubuntu" >> /etc/apt/sources.list.d/docker.sources
+                        echo "Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")" >> /etc/apt/sources.list.d/docker.sources
+                        echo "Components: stable" /etc/apt/sources.list.d/docker.sources
+                        echo "Architectures: $(dpkg --print-architecture)" >> /etc/apt/sources.list.d/docker.sources
+                        echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
+                        
+                    
+                        apt update -y
+                        apt search docker.io    
 
                         #yum install jq -y
                         #yum install docker -y
