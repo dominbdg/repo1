@@ -35,6 +35,7 @@ pipeline {
                             cluster='mycluster'
                             service='myservice'
                             task_definition='mytask-definition'
+                            registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         
                         yum install jq -y
                         yum search docker
@@ -53,8 +54,8 @@ pipeline {
                             #echo "register version: $register"
                             #echo "--- /list revisions ----"
 
-                        aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:$register --region $region    
-                        aws ecs wait services-stable --cluster $cluster --services $service --region $region
+                            #aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:$register --region $region    
+                            #aws ecs wait services-stable --cluster $cluster --services $service --region $region
 
 
                     '''
