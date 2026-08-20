@@ -72,7 +72,7 @@ pipeline {
 
                         
                         aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
-                        docker build -t $registry/myrepo:01 --push .
+                        docker build -t $registry/myrepo:01 --provenance=false --push .
                         #docker push $registry/myrepo:01
 
                         #docker build -t $registry/build:01 .
