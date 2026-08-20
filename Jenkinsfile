@@ -38,7 +38,10 @@ pipeline {
                             registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         
                         yum install jq -y
-                        yum search docker
+                        yum install docker
+
+                        echo "FROM amazon/aws-cli" > Dockerfile
+                        docker build $registry/build:01 .
 
                         #echo "--- list services ---"
 
