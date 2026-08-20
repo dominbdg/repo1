@@ -55,7 +55,7 @@ pipeline {
                         echo "Types: deb" > /etc/apt/sources.list.d/docker.sources
                         echo "URIs: https://download.docker.com/linux/ubuntu" >> /etc/apt/sources.list.d/docker.sources
                         echo "Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")" >> /etc/apt/sources.list.d/docker.sources
-                        echo "Components: stable" /etc/apt/sources.list.d/docker.sources
+                        echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
                         echo "Architectures: $(dpkg --print-architecture)" >> /etc/apt/sources.list.d/docker.sources
                         echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
                         
