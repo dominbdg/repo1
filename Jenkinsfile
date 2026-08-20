@@ -42,7 +42,7 @@ pipeline {
 
                         #apt install -y jq
                         apt update -y
-                        apt search docker-buildx-plugin
+                        apt search awscli
                         #yum install jq -y
                         #yum install docker -y
 
