@@ -70,7 +70,7 @@ pipeline {
                         # --- deployment from registry ---    
                         echo "FROM amazon/aws-cli" > Dockerfile
                         docker build -t $registry/build:01 .
-                        aws ecr get-login-password | docker login --username AWS --password-stdin $registry
+                        aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
                         docker push $registry/myrepo
 
                         #echo "--- list services ---"
