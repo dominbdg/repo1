@@ -71,7 +71,7 @@ pipeline {
                         echo "FROM amazon/aws-cli" > Dockerfile
 
                         
-                        aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry/myrepo:01
+                        aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
                         docker build -t $registry/myrepo:01 --push .
                         #docker push $registry/myrepo:01
 
