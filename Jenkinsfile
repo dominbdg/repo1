@@ -21,7 +21,8 @@ pipeline {
         stage('aws stage') {
             agent {
                 docker {
-                    image 'amazon/aws-cli'
+                    //image 'amazon/aws-cli'
+                    image 'ubuntu:latest'
                     reuseNode true
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
@@ -37,8 +38,12 @@ pipeline {
                             task_definition='mytask-definition'
                             registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         
-                        yum install jq -y
-                        yum install docker -y
+                        # ubuntu server
+
+                        apt install -y jq
+                        apt install -y docker 
+                        #yum install jq -y
+                        #yum install docker -y
 
                         echo "FROM amazon/aws-cli" > Dockerfile
                         docker build -t $registry/build:01 .
