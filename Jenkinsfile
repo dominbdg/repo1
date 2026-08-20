@@ -45,8 +45,9 @@ pipeline {
                         #yum install jq -y
                         #yum install docker -y
 
-                        echo "FROM amazon/aws-cli" > Dockerfile
-                        docker build -t $registry/build:01 .
+                        # --- deployment from registry ---    
+                        #echo "FROM amazon/aws-cli" > Dockerfile
+                        #docker build -t $registry/build:01 .
 
                         #echo "--- list services ---"
 
