@@ -41,7 +41,7 @@ pipeline {
                         yum install docker -y
 
                         echo "FROM amazon/aws-cli" > Dockerfile
-                        docker build $registry/build:01 .
+                        docker build -t $registry/build:01 .
 
                         #echo "--- list services ---"
 
