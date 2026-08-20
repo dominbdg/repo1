@@ -68,8 +68,8 @@ pipeline {
                         #yum install docker -y
 
                         # --- deployment from registry ---    
-                        #echo "FROM amazon/aws-cli" > Dockerfile
-                        #docker build -t $registry/build:01 .
+                        echo "FROM amazon/aws-cli" > Dockerfile
+                        docker build -t $registry/build:01 .
 
                         #echo "--- list services ---"
 
