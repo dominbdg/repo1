@@ -41,11 +41,11 @@ pipeline {
                         # ubuntu server
 
                         #apt install -y jq
-                        apt update -y
-                        apt install -y awscli
+                        #apt update -y
+                        #apt install -y awscli
 
                         # installing docker.io
-                        apt install ca-certificates curl
+                        apt install ca-certificates curl -y
                         sudo apt install ca-certificates curl
                         install -m 0755 -d /etc/apt/keyrings
                         curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
