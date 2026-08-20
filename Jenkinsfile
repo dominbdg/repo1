@@ -41,7 +41,7 @@ pipeline {
                         # ubuntu server
 
                         #apt install -y jq
-                        #apt update -y
+                        apt update -y
                         #apt install -y awscli
 
                         # installing docker.io
