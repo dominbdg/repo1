@@ -21,7 +21,7 @@ pipeline {
         stage('aws stage') {
             agent {
                 docker {
-                    image 'myimage:01'
+                    image 'amazon/aws-cli'
                     reuseNode true
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
@@ -36,20 +36,22 @@ pipeline {
                             service='myservice'
                             task_definition='mytask-definition'
                         
-                        yum install jq -y    
+                        yum install jq -y
+                        yum search docker
 
-                        echo "--- list services ---"
+                        #echo "--- list services ---"
 
                         #aws ecs list-clusters --region $region
                         #aws ecs list-task-definitions --region $region
                         #aws ecs list-services --cluster $cluster --region $region
 
-                        echo "--- /list services ---"
+                        #echo "--- /list services ---"
 
-                        echo "--- list revisions ----"
-                        register=$(aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region | jq ".taskDefinition.revision")
-                        echo "register version: $register"
-                        echo "--- /list revisions ----"
+                        # aws trying ECS commands
+                            #echo "--- list revisions ----"
+                            #register=$(aws ecs register-task-definition --cli-input-json file://task-definition.json --region $region | jq ".taskDefinition.revision")
+                            #echo "register version: $register"
+                            #echo "--- /list revisions ----"
 
                         aws ecs update-service --cluster $cluster --service $service --task-definition $task_definition:$register --region $region    
                         aws ecs wait services-stable --cluster $cluster --services $service --region $region
