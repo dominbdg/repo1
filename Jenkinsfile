@@ -42,7 +42,7 @@ pipeline {
 
                         #apt install -y jq
                         apt update -y
-                        apt search awscli
+                        apt instakll -y awscli
                         #yum install jq -y
                         #yum install docker -y
 
