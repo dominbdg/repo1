@@ -61,7 +61,8 @@ pipeline {
                         
                     
                         apt update -y
-                        apt search docker.io    
+                        apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                        docker-buildx --version
 
                         #yum install jq -y
                         #yum install docker -y
