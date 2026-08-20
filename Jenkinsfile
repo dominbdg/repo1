@@ -41,7 +41,7 @@ pipeline {
                         # ubuntu server
 
                         #apt install -y jq
-                        apt install -y docker 
+                        apt search docker
                         #yum install jq -y
                         #yum install docker -y
 
