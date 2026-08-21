@@ -10,6 +10,7 @@ pipeline {
                     apt update -y
                     apt install -y docker
                     docker pull debian
+                    docker run -d debian:latest
 
 
 
