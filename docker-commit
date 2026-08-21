@@ -8,8 +8,8 @@ pipeline {
             steps {
                 sh  '''
                     apt update -y
-                    apt search docker
-                    
+                    apt search docker | grep docker
+
 
 
 
