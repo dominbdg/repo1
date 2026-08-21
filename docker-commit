@@ -6,10 +6,11 @@ pipeline {
     stages {
         stage('Check agent') {
             steps {
-                sh '''
-                    hostname
-                    whoami
-                    java -version
+                sh  '''
+                echo "aaa" > /opt/test test.txt
+
+
+
                 '''
             }
         }
