@@ -19,8 +19,6 @@
         */
 
         stage('aws stage') {
-            agent any
-            /*
             agent {
                 docker {
                     //image 'amazon/aws-cli'
@@ -29,7 +27,6 @@
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
             }
-            */
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
@@ -43,6 +40,14 @@
                             d='Dockerfile'
                         
                         # building docker image
+
+                        apt update -y
+                        apt install ca-certificates curl awscli -y
+                        install -m 0755 -d /etc/apt/keyrings
+                        curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+                        chmod a+r /etc/apt/keyrings/docker.asc
+                        apt update -y
+                        apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
                         rm -f Dockerfile
                         echo "FROM ubuntu:latest" > Dockerfile
@@ -68,7 +73,7 @@
                         
                         echo "----------------------------------------"
 
-                        apt update -y && apt install -y docker
+                        #apt update -y && apt install -y docker
 
                         docker build -t debian:01 .
 
