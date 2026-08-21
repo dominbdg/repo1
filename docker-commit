@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        label 'linux-vm2'
+    }
+
+    stages {
+        stage('Check agent') {
+            steps {
+                sh '''
+                    hostname
+                    whoami
+                    java -version
+                '''
+            }
+        }
+    }
+}
