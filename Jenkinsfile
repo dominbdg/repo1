@@ -19,6 +19,8 @@
         */
 
         stage('aws stage') {
+            agent any
+            /*
             agent {
                 docker {
                     //image 'amazon/aws-cli'
@@ -27,6 +29,7 @@
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
                 } 
             }
+            */
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
