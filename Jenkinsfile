@@ -64,7 +64,7 @@
                         echo "RUN apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin" >> Dockerfile
                         
                         echo "----------------------------------------"
-                        cat Dockerfile
+                        docker build -t debian:01 .
 
                         #docker-buildx --version
 
