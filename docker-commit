@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        label 'linux-vm2'
+        label 'linux-vm2-root'
+         args 'su -'
     }
 
     stages {
