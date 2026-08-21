@@ -1,4 +1,4 @@
-pipeline {
+    pipeline {
     agent any
     stages {
         
@@ -37,42 +37,46 @@ pipeline {
                             service='myservice'
                             task_definition='mytask-definition'
                             registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
+                            d='Dockerfile'
                         
-                        # ubuntu server
+                        # building docker image
 
-                        #apt install -y jq
-                        apt update -y
-                        #apt install -y awscli
+                        rm -f Dockerfile
+                        echo "FROM ubuntu:latest" > Dockerfile
+                        echo "RUN apt update -y" >> Dockerfile
+                        echo "RUN apt install ca-certificates curl awscli -y" >> Dockerfile
+                            #apt install ca-certificates curl
+                        echo "RUN install -m 0755 -d /etc/apt/keyrings" >> Dockerfile
+                        echo "RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc" >> Dockerfile
+                        echo "RUN chmod a+r /etc/apt/keyrings/docker.asc" >> Dockerfile
 
-                        # installing docker.io
-                        apt install ca-certificates curl awscli -y
-                        #apt install ca-certificates curl
-                        install -m 0755 -d /etc/apt/keyrings
-                        curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-                        chmod a+r /etc/apt/keyrings/docker.asc
-
-                        # Add the repository to Apt sources:
                         echo "Types: deb" > /etc/apt/sources.list.d/docker.sources
                         echo "URIs: https://download.docker.com/linux/ubuntu" >> /etc/apt/sources.list.d/docker.sources
                         echo "Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")" >> /etc/apt/sources.list.d/docker.sources
                         echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
                         echo "Architectures: $(dpkg --print-architecture)" >> /etc/apt/sources.list.d/docker.sources
                         echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
+
+                        echo "COPY /etc/apt/sources.list.d/docker.sources /etc/apt/sources.list.d/docker.sources" >> Dockerfile
+                        #cat docker.source
                         
-                    
-                        apt update -y
-                        apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                        echo "RUN apt update -y" >> Dockerfile
+                        echo "RUN apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin" >> Dockerfile
+                        
+                        echo "----------------------------------------"
+                        cat Dockerfile
+
                         #docker-buildx --version
 
                         #yum install jq -y
                         #yum install docker -y
 
                         # --- deployment from registry ---    
-                        echo "FROM amazon/aws-cli" > Dockerfile
+                        #echo "FROM amazon/aws-cli" > Dockerfile
 
                         
-                        aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
-                        docker build -t $registry/myrepo:01 --provenance=false --push .
+                        #aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
+                        #docker build -t $registry/myrepo:01 --provenance=false --push .
                         #docker push $registry/myrepo:01
 
                         #docker build -t $registry/build:01 .
