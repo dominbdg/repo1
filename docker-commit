@@ -7,7 +7,13 @@ pipeline {
         stage('Check agent') {
             steps {
                 sh  '''
-                echo "aaa" > /opt/test test.txt
+                    apt update -y
+                    apt search docker
+                    
+
+
+
+
 
 
 
