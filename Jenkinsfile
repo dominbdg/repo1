@@ -63,8 +63,8 @@
                         echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
                         echo "Architectures: $(dpkg --print-architecture)" >> /etc/apt/sources.list.d/docker.sources
                         echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
-
-                        echo "COPY /etc/apt/sources.list.d/docker.sources /etc/apt/sources.list.d/docker.sources" >> Dockerfile
+                        cp /etc/apt/sources.list.d/docker.sources .
+                        echo "COPY docker.sources /etc/apt/sources.list.d/docker.sources" >> Dockerfile
                         #cat docker.source
                         
                         echo "RUN apt update -y" >> Dockerfile
