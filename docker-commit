@@ -22,6 +22,7 @@ pipeline {
                     yum install -y docker
 
                     registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
+                    region='us-east-1'
 
                     aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
                     docker pull $registry/myrepo:01'
