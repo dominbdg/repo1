@@ -7,7 +7,8 @@ pipeline {
         stage('Check agent') {
             agent {
                 docker {
-                    image "amazon/aws-cli"
+                    //image "amazon/aws-cli"
+                    image "792752059287.dkr.ecr.us-east-1.amazonaws.com/myrepo:01"
                     args "-u 0 -v /var/run/docker.sock:/var/run/docker.sock --entrypoint='"
                 }
             }
@@ -21,16 +22,17 @@ pipeline {
                         registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
                         region='us-east-1'
 
-                        yum update -y
-                        yum install -y docker
-                        usermod -aG docker root
+                        #yum update -y
+                        #yum install -y docker
+                        #usermod -aG docker root
                     #whoami
 
 
                     
 
-                    aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
-                    docker pull $registry/myrepo:01
+                    #aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
+                    aws ecr create-repository $registry/testrepo
+                    #docker pull $registry/myrepo:01
                 
                     '''
                 }
