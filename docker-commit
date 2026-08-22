@@ -17,6 +17,10 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
 
+                    yum update -y
+                    amazon-linux-extras install -y docker
+
+
                     registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
 
                     aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
