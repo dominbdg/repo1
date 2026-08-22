@@ -19,8 +19,7 @@ pipeline {
                     sh '''
 
                     yum update -y
-                    amazon-linux-extras install -y docker
-
+                    yum install -y docker
 
                     registry='792752059287.dkr.ecr.us-east-1.amazonaws.com'
 
