@@ -31,7 +31,7 @@ pipeline {
                     
 
                     #aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $registry
-                    aws ecr create-repository --repository-name $registry/testrepo
+                    aws ecr create-repository --repository-name $registry/testrepo --region $region
                     #docker pull $registry/myrepo:01
                 
                     '''
